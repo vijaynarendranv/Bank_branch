@@ -1,0 +1,74 @@
+version: "3.1"
+
+stories:
+- story: arithmetic operation
+  steps:
+  - intent: summation
+  - action: utter_ask
+  - intent: mood_great
+  - action: utter_happy
+
+
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: add
+  steps:
+  - intent: add
+  - entities:
+    - number: 5
+    - number: 10
+  - action: action_add
+  - action: utter_result
+
+- story: subtract
+    steps:
+      - intent: subtract
+        entities:
+        - number: 10
+        - number: 5
+      - action: action_subtract
+      - action: utter_result
+
+- story: multiply
+    steps:
+      - intent: multiply
+        entities:
+        - number: 5
+        - number: 10
+      - action: action_multiply
+      - action: utter_result
+
+- story: divide
+    steps:
+      - intent: divide
+        entities:
+        - number: 10
+        - number: 5
+      - action: action_divide
+      - action: utter_result
